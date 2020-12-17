@@ -1,11 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { City } from './City'
+import Loader from 'react-loader-spinner'
 
 const CityWrapper = () => {
   const { city, loading, error } = useSelector(state => state.search)
 
-  return city ? <City {...city} /> : <></>
+  return loading === 'pending' ? <Loader /> : <div>
+    {city ? <City {...city} /> : <></>}
+    {error && <p>An error occurred during the request, please try again or contact
+      us if the problem persists</p>}
+  </div>
 }
 
 export default CityWrapper

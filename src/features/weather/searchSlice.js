@@ -44,17 +44,7 @@ const searchSlice = createSlice({
         state.currentRequestId = undefined
       }
     }
-  },
-  reducers: {
-    toggleTodo(state, action) {
-      const todo = state.find(todo => todo.id === action.payload)
-      if (todo) {
-        todo.completed = !todo.completed
-      }
-    }
   }
 })
-
-export const { toggleTodo } = searchSlice.actions
 
 export default searchSlice.reducer
