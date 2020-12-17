@@ -14,13 +14,18 @@ export const fetchCityWeather = createAsyncThunk(
       variables: { name: cityName, unit }
     })
 
-    return response.data.getCityByName
+    return response.data.getCityByName && {name: cityName, ...response.data.getCityByName}
   }
 )
 
 const searchSlice = createSlice({
   name: 'search',
   initialState: { currentRequestId: undefined, city: undefined, loading: 'idle', error: null },
+  reducers: {
+    reset(state) {
+      state.city = undefined
+    }
+  },
   extraReducers: {
     [fetchCityWeather.pending]: (state, action) => {
       if (state.loading === 'idle') {
@@ -46,5 +51,7 @@ const searchSlice = createSlice({
     }
   }
 })
+
+export const { reset } = searchSlice.actions
 
 export default searchSlice.reducer
