@@ -1,13 +1,11 @@
 import React from 'react'
-import Footer from 'features/filters/Footer'
-import AddTodo from 'features/todos/AddTodo'
-import VisibleTodoList from 'features/todos/VisibleTodoList'
+import Search from 'features/weather/Search'
+import CityWrapper from 'features/weather/CityWrapper'
 
 const App = () => (
   <div>
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
+    <Search />
+    <CityWrapper />
   </div>
 )
 
