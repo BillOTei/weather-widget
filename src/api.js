@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const getGetCityWeather = gql`
-    query GetCityWeather($name: String!) {
-        getCityByName(name: $name, config: { units: metric }) {
+    query GetCityWeather($name: String!, $unit: Unit!) {
+        getCityByName(name: $name, config: { units: $unit }) {
         country
         weather {
           temperature {

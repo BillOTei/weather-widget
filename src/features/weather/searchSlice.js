@@ -4,14 +4,14 @@ import { getGetCityWeather } from '../../api'
 
 export const fetchCityWeather = createAsyncThunk(
   'weather/getCityByName',
-  async (cityName, { getState, requestId }) => {
+  async ({ cityName, unit }, { getState, requestId }) => {
     const { currentRequestId, loading } = getState().search
     if (loading !== 'pending' || requestId !== currentRequestId) {
       return
     }
     const response = await client.query({
       query: getGetCityWeather,
-      variables: { name: cityName }
+      variables: { name: cityName, unit }
     })
 
     return response.data.getCityByName

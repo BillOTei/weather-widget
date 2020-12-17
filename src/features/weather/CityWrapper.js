@@ -7,9 +7,9 @@ const CityWrapper = () => {
   const { city, loading, error } = useSelector(state => state.search)
 
   return loading === 'pending' ? <Loader /> : <div>
-    {city ? <City {...city} /> : <></>}
+    {city ? <City {...city} /> : city === null ? <div>City not found.</div> : <></>}
     {error && <p>An error occurred during the request, please try again or contact
-      us if the problem persists</p>}
+      us if the problem persists.</p>}
   </div>
 }
 
