@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { City } from './City'
 
 const CityWrapper = () => {
@@ -8,7 +8,4 @@ const CityWrapper = () => {
   return city ? <City {...city} /> : <></>
 }
 
-export default connect(
-  null,
-  null
-)(CityWrapper)
+export default CityWrapper

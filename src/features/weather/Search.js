@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { connect, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { fetchCityWeather } from './searchSlice'
 
 const Search = () => {
@@ -26,7 +26,4 @@ const Search = () => {
   )
 }
 
-export default connect(
-  null,
-  null
-)(Search)
+export default Search
